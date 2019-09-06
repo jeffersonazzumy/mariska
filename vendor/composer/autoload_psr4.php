@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Mariska\\Router\\' => array($baseDir . '/Src/Router'),
     'Mariska\\' => array($baseDir . '/Src'),
     'App\\' => array($baseDir . '/App'),
 );

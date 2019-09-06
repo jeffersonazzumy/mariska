@@ -6,9 +6,8 @@
  * Time: 18:40
  */
 
-namespace Mariska\Router\Core;
+namespace Mariska\Core;
 use InvalidArgumentException;
-use Mariska\Core\Http\Request;
 
 class Dispatch
 {
@@ -25,12 +24,12 @@ class Dispatch
 
     private $args = [];
 
-    private $request;
+    private $method;
 
     public function __construct()
     {
 
-        $this->request = new Request();
+        $this->method = $_SERVER["REQUEST_METHOD"];
         $this->path = parse_url($_SERVER["REQUEST_URI"])["path"];
         $this->dispatch();
     }

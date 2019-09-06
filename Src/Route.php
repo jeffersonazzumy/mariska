@@ -6,14 +6,12 @@
  * Time: 13:05
  */
 
-namespace Mariska\Router;
+namespace Mariska;
 
 
+use Mariska\Core\Dispatch;
 
-use Mariska\Core\Interfaces\Router;
-use Mariska\Router\Core\Dispatch;
-
-class Route extends Dispatch implements Router
+class Route extends Dispatch
 {
 
     private $nameSpace = '';
