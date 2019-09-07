@@ -9,37 +9,32 @@
 namespace Mariska;
 
 
-use Mariska\Core\Dispatch;
-
-class Route extends Dispatch
+class Route extends Router
 {
 
-    private $nameSpace = '';
-
-    public function addNameSpace($nameSpace)
+    public function __construct($uri = '')
     {
-        $this->nameSpace = $nameSpace;
-        return $this;
+        parent::__construct($uri);
     }
 
-    public function add($http_verb, $route, $controller)
+    public function get($route, $controller)
     {
-        $verb = [
-            "GET" => true,
-            "POST" => true,
-            "PUT" => true,
-            "DELETE" => true
-        ];
+        $this->parserRoute("GET", $route, $controller);
+    }
 
-        if (isset($verb[$http_verb])){
+    public function post($route, $controller)
+    {
+        $this->parserRoute("POST", $route, $controller);
+    }
 
-            $this->route($http_verb, $route, $controller);
+    public function put($route, $controller)
+    {
+        $this->parserRoute("PUT", $route, $controller);
+    }
 
-        }else{
-
-            echo "eroo";
-        }
-
+    public function delete($route, $controller)
+    {
+        $this->parserRoute("DELETE", $route, $controller);
     }
 
 }
